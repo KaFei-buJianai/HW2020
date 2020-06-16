@@ -13,5 +13,15 @@ body{
     margin-top: 5em;
 
 
+}
 
+.plan-editor {
+    padding: 5px 20px;
+    display: flex;
+}
+
+.plan-editor input {
+    flex-grow: 1;
+    font-size: 1.2em;
+    padding: 2px 5px;
 }
