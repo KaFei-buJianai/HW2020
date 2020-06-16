@@ -38,15 +38,29 @@ function renderTaskItems() {
     let itemsEl = document.querySelector("#default-plan-panel .plan-items");
 
     itemsEl.querySelectorAll("div").forEach((node)=>node.remove());
-
-    console.log(itemsEl);
-
+    
     for(let i = 0; i < tasks.length; i++){
         let task = tasks[i];
         let itemEl = document.createElement("div");
+        itemEl.className = "task";
 
         let doneEL = document.createElement("input");
         doneEL.type = "checkbox";
+        doneEL.checked = task.done;
+        if(task.done){
+            itemEl.classList.add("done");
+        } else {
+            itemEl.classList.remove("done");
+        }
+        
+        doneEL.onchange = (e) => {
+            task.done = e.target.checked;
+            if(task.done){
+                itemEl.classList.add("done");
+            } else {
+                itemEl.classList.remove("done");
+            }
+        }
         itemEl.append(doneEL);
 
         let titleEl = document.createElement("label");

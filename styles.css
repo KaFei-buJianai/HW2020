@@ -25,3 +25,7 @@ body{
     font-size: 1.2em;
     padding: 2px 5px;
 }
+
+.task.done > label {
+    text-decoration: line-through;
+}
