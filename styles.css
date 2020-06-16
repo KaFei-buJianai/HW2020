@@ -8,7 +8,6 @@ body{
     width: 30em;
     min-height: 20em;
     border: 1px solid #eee;
-    
     box-shadow: 4px 6px 6px #888;
     margin-top: 5em;
 
@@ -24,6 +23,37 @@ body{
     flex-grow: 1;
     font-size: 1.2em;
     padding: 2px 5px;
+}
+
+.plan-items {
+    padding: 5px 20px;
+}
+
+.plan-items > .task {
+    display: flex;
+    align-items: center;
+}
+
+.plan-items > .task > input {
+    width: 1.5em;
+    height: 1.3em;
+}
+
+
+.plan-items > .task > label {
+    flex-grow: 1;
+}
+
+.plan-items > .task > button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.plan-items > .task > button:hover {
+    font-weight: bolder;
+    color: white;
+    background-color: tomato;
 }
 
 .task.done > label {
