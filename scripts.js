@@ -5,6 +5,9 @@ function renderEditor() {
     let inputEl = document.querySelector("#default-plan-panel .plan-editor > input");
 
     let addTask = () => {
+        if(inputEl.value.length===0) {
+            return;
+        }
         console.log("add click");
         let newTask = {
             title: inputEl.value,
