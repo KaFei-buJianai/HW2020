@@ -5,7 +5,7 @@ function renderEditor() {
     let inputEl = document.querySelector("#default-plan-panel .plan-editor > input");
 
     let addTask = () => {
-        if(inputEl.value.length===0) {
+        if (inputEl.value.length === 0) {
             return;
         }
         console.log("add click");
@@ -13,26 +13,26 @@ function renderEditor() {
             title: inputEl.value,
             done: false,
         };
-        
+
         inputEl.value = "";
 
         tasks.push(newTask);
 
-        console.log("tasks: ",tasks);
+        console.log("tasks: ", tasks);
 
         renderTaskItems();
     };
 
     inputEl.onkeypress = (e) => {
-        if(e.key==="Enter"){
+        if (e.key === "Enter") {
             addTask();
         }
-        
+
     };
 
     let addEl = document.querySelector("#default-plan-panel .plan-editor > button");
     addEl.onclick = (e) => {
-       addTask();
+        addTask();
     };
 }
 
@@ -40,9 +40,9 @@ function renderTaskItems() {
     console.log("render itms");
     let itemsEl = document.querySelector("#default-plan-panel .plan-items");
 
-    itemsEl.querySelectorAll("div").forEach((node)=>node.remove());
-    
-    for(let i = 0; i < tasks.length; i++){
+    itemsEl.querySelectorAll("div").forEach((node) => node.remove());
+
+    for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
         let itemEl = document.createElement("div");
         itemEl.className = "task";
@@ -50,15 +50,15 @@ function renderTaskItems() {
         let doneEL = document.createElement("input");
         doneEL.type = "checkbox";
         doneEL.checked = task.done;
-        if(task.done){
+        if (task.done) {
             itemEl.classList.add("done");
         } else {
             itemEl.classList.remove("done");
         }
-        
+
         doneEL.onchange = (e) => {
             task.done = e.target.checked;
-            if(task.done){
+            if (task.done) {
                 itemEl.classList.add("done");
             } else {
                 itemEl.classList.remove("done");
@@ -76,7 +76,7 @@ function renderTaskItems() {
             tasks.splice(i, 1);
             renderTaskItems();
         };
-        
+
         itemEl.append(cancelEl);
 
         itemsEl.append(itemEl);

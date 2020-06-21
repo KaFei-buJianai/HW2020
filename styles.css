@@ -10,8 +10,6 @@ body{
     border: 1px solid #eee;
     box-shadow: 4px 6px 6px #888;
     margin-top: 5em;
-
-
 }
 
 .plan-editor {
@@ -34,11 +32,14 @@ body{
     align-items: center;
 }
 
+.plan-items > .task:hover {
+    background-color: rgb(235, 235, 235);
+}
+
 .plan-items > .task > input {
     width: 1.5em;
     height: 1.3em;
 }
-
 
 .plan-items > .task > label {
     flex-grow: 1;
