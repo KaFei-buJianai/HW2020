@@ -45,13 +45,15 @@ body{
     flex-grow: 1;
 }
 
-.plan-items > .task > button {
+.plan-items .ctrlbar > button {
     border: none;
     background: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
-.plan-items > .task > button:hover {
+.plan-items .ctrlbar > button:hover {
     font-weight: bolder;
     color: white;
     background-color: tomato;

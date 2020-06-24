@@ -70,6 +70,9 @@ function renderTaskItems() {
         titleEl.innerText = task.title;
         itemEl.append(titleEl);
 
+        let ctrlbarEl = document.createElement("div");
+        ctrlbarEl.className = "ctrlbar";
+
         let cancelEl = document.createElement("button");
         cancelEl.innerText = "X";
         cancelEl.onclick = () => {
@@ -77,7 +80,9 @@ function renderTaskItems() {
             renderTaskItems();
         };
 
-        itemEl.append(cancelEl);
+        ctrlbarEl.append(cancelEl)
+
+        itemEl.append(ctrlbarEl);
 
         itemsEl.append(itemEl);
 
