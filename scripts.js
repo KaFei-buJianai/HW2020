@@ -70,23 +70,55 @@ function renderTaskItems() {
         titleEl.innerText = task.title;
         itemEl.append(titleEl);
 
-        let ctrlbarEl = document.createElement("div");
-        ctrlbarEl.className = "ctrlbar";
-
-        let cancelEl = document.createElement("button");
-        cancelEl.innerText = "X";
-        cancelEl.onclick = () => {
-            tasks.splice(i, 1);
-            renderTaskItems();
-        };
-
-        ctrlbarEl.append(cancelEl)
-
+        let ctrlbarEl = renderTaskCtrlBar(tasks, i);
+        
         itemEl.append(ctrlbarEl);
 
         itemsEl.append(itemEl);
 
     }
+}
+
+function renderTaskCtrlBar(tasks, taskI){
+    let ctrlbarEl = document.createElement("div");
+        ctrlbarEl.className = "ctrlbar";
+
+        let upEl = document.createElement("button");
+        if (taskI === 0) {
+            upEl.disabled = true;
+        } 
+        upEl.innerText = "🡹";
+        upEl.onclick = () => {
+            sc = tasks [taskI - 1];
+            tasks [taskI - 1] = tasks [taskI];
+            tasks [taskI] = sc
+            renderTaskItems();
+        };
+        ctrlbarEl.append(upEl);
+
+        let downEl = document.createElement("button");
+        if (taskI === tasks.length - 1) {
+            downEl.disabled = true;
+        }
+        downEl.innerText = "🡻";
+        downEl.onclick = () => {
+            sc = tasks [taskI + 1];
+            tasks [taskI + 1] = tasks [taskI];
+            tasks [taskI] = sc
+            renderTaskItems();
+        };
+        ctrlbarEl.append(downEl);
+
+        let cancelEl = document.createElement("button");
+        cancelEl.innerText = "X";
+        cancelEl.onclick = () => {
+            tasks.splice(taskI, 1);
+            renderTaskItems();
+        };
+
+        ctrlbarEl.append(cancelEl);
+
+        return ctrlbarEl;
 }
 
 renderEditor();

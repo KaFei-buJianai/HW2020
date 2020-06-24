@@ -45,13 +45,31 @@ body{
     flex-grow: 1;
 }
 
+.plan-items .ctrlbar {
+    display: flex;
+    align-items: center;
+}
+
 .plan-items .ctrlbar > button {
     border: none;
     background: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
 }
+
+
+
+.plan-items .ctrlbar > button:disabled {
+    color: gray;
+    cursor: unset;
+}
+
+.plan-items .ctrlbar > button:disabled:hover {
+    font-weight: unset;
+    color: gray;
+    background-color: unset;
+}
+
+
 
 .plan-items .ctrlbar > button:hover {
     font-weight: bolder;
