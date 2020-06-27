@@ -56,7 +56,13 @@ body{
     cursor: pointer;
 }
 
+.plan-items .ctrlbar > button.style{
+    color: red;
+}
 
+.plan-items .ctrlbar > button:hover{
+    background-color: rgb(207, 207, 207);
+}
 
 .plan-items .ctrlbar > button:disabled {
     color: gray;
@@ -69,9 +75,13 @@ body{
     background-color: unset;
 }
 
+.plan-items > .task > button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
 
-
-.plan-items .ctrlbar > button:hover {
+.plan-items > .task > button:hover {
     font-weight: bolder;
     color: white;
     background-color: tomato;

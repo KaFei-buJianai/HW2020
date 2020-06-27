@@ -73,7 +73,15 @@ function renderTaskItems() {
         let ctrlbarEl = renderTaskCtrlBar(tasks, i);
         
         itemEl.append(ctrlbarEl);
-
+        
+        let cancelEl = document.createElement("button");
+        cancelEl.innerText = "X";
+        cancelEl.onclick = () => {
+            tasks.splice(i, 1);
+            renderTaskItems();
+        };
+        itemEl.append(cancelEl);
+        
         itemsEl.append(itemEl);
 
     }
@@ -87,7 +95,7 @@ function renderTaskCtrlBar(tasks, taskI){
         if (taskI === 0) {
             upEl.disabled = true;
         } 
-        upEl.innerText = "🡹";
+        upEl.innerText = "🡩";
         upEl.onclick = () => {
             sc = tasks [taskI - 1];
             tasks [taskI - 1] = tasks [taskI];
@@ -100,7 +108,7 @@ function renderTaskCtrlBar(tasks, taskI){
         if (taskI === tasks.length - 1) {
             downEl.disabled = true;
         }
-        downEl.innerText = "🡻";
+        downEl.innerText = "🡫";
         downEl.onclick = () => {
             sc = tasks [taskI + 1];
             tasks [taskI + 1] = tasks [taskI];
@@ -109,17 +117,23 @@ function renderTaskCtrlBar(tasks, taskI){
         };
         ctrlbarEl.append(downEl);
 
-        let cancelEl = document.createElement("button");
-        cancelEl.innerText = "X";
-        cancelEl.onclick = () => {
-            tasks.splice(taskI, 1);
-            renderTaskItems();
-        };
-
-        ctrlbarEl.append(cancelEl);
-
+        let importantEl =  document.createElement("button");
+        importantEl.innerText = "★";
+        importantEl.onclick = () => {
+            if (importantEl.style.color = "black") {
+                importantEl.style.color = "red";
+            }
+            else {
+                importantEl.style.color = "black";
+            }
+            
+            };
+        ctrlbarEl.append(importantEl);
+    
         return ctrlbarEl;
 }
+
+
 
 renderEditor();
 renderTaskItems();
